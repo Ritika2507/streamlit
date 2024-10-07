@@ -79,8 +79,8 @@ st.write("### (4) show three metrics (https://docs.streamlit.io/library/api-refe
 st.write("### Metrics")
 col1, col2, col3 = st.columns(3)
 col1.metric("Total Sales", f"${total_sales:,.2f}")
- col2.metric("Total Profit", f"${total_profit:,.2f}")
- col3.metric("Overall Profit Margin", f"{overall_profit_margin:.2f}%", delta=f"{delta_profit_margin:.2f}%")
+col2.metric("Total Profit", f"${total_profit:,.2f}")
+col3.metric("Overall Profit Margin", f"{overall_profit_margin:.2f}%", delta=f"{delta_profit_margin:.2f}%")
 
 st.write("### (5) use the delta option in the overall profit margin metric to show the difference between the overall average profit margin (all products across all categories)")
 # Display selected options
