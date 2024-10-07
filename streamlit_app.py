@@ -62,25 +62,25 @@ if selected_sub_categories:
 st.write("### (3) show a line chart of sales for the selected items in (2)")
 st.write("### Sales Line Chart")
 sales_chart = filtered_df.groupby('Order_Date')['Sales'].sum().reset_index()
-    st.line_chart(sales_chart, x='Order_Date', y='Sales')
+st.line_chart(sales_chart, x='Order_Date', y='Sales')
 
-    # Calculate metrics
-    total_sales = filtered_df['Sales'].sum()
-    total_profit = filtered_df['Profit'].sum()
-    overall_profit_margin = total_profit / total_sales * 100
+ # Calculate metrics
+total_sales = filtered_df['Sales'].sum()
+total_profit = filtered_df['Profit'].sum()
+overall_profit_margin = total_profit / total_sales * 100
 
-    # Overall average profit margin for all products across all categories
-    overall_avg_profit_margin = df['Profit'].sum() / df['Sales'].sum() * 100
-    delta_profit_margin = overall_profit_margin - overall_avg_profit_margin
+# Overall average profit margin for all products across all categories
+overall_avg_profit_margin = df['Profit'].sum() / df['Sales'].sum() * 100
+delta_profit_margin = overall_profit_margin - overall_avg_profit_margin
 
 
 st.write("### (4) show three metrics (https://docs.streamlit.io/library/api-reference/data/st.metric) for the selected items in (2): total sales, total profit, and overall profit margin (%)")
 # Step (4): Show three metrics
-    st.write("### Metrics")
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Total Sales", f"${total_sales:,.2f}")
-    col2.metric("Total Profit", f"${total_profit:,.2f}")
-    col3.metric("Overall Profit Margin", f"{overall_profit_margin:.2f}%", delta=f"{delta_profit_margin:.2f}%")
+st.write("### Metrics")
+col1, col2, col3 = st.columns(3)
+col1.metric("Total Sales", f"${total_sales:,.2f}")
+ col2.metric("Total Profit", f"${total_profit:,.2f}")
+ col3.metric("Overall Profit Margin", f"{overall_profit_margin:.2f}%", delta=f"{delta_profit_margin:.2f}%")
 
 st.write("### (5) use the delta option in the overall profit margin metric to show the difference between the overall average profit margin (all products across all categories)")
 # Display selected options
